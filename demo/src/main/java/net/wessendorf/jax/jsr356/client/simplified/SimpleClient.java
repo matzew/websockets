@@ -28,7 +28,7 @@ public class SimpleClient {
     public static void main(String... args) throws URISyntaxException {
 
         // create the WS object:
-        final SimpleWebSocketClient client = new SimpleWebSocketClient("ws://echo.websocket.org");
+        final SimpleWebSocketClient client = new SimpleWebSocketClient("ws://localhost:8080/echo");
 
 
         // Attach the listeners that you need (-> Adapter ;-))
