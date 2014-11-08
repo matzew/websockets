@@ -1,5 +1,7 @@
 #WebSocket demos and slides
 
+To view the slides, click [here](http://matzew.github.io/websockets)
+
 Demos are based on:
 * [Undertow](https://github.com/undertow-io/undertow)
 * [JSR 356](https://github.com/undertow-io/undertow/tree/master/websockets-jsr)
