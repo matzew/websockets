@@ -1,4 +1,4 @@
-#WebSocket demos and slides
+#WebSocket demos and slides [![Build Status](https://travis-ci.org/matzew/websockets.png)](https://travis-ci.org/matzew/websockets)
 
 To view the slides, click [here](http://matzew.github.io/websockets)
 
