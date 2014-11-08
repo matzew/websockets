@@ -52,7 +52,7 @@ public class UndertowRunner {
 
 
         Undertow server = Undertow.builder()
-                .addHttpListener(8080, "localhost")
+                .addHttpListener(8080, "0.0.0.0")
                 .setHandler(path)
                 .build();
         server.start();

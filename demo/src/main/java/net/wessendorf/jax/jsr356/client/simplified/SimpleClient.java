@@ -21,7 +21,7 @@ import net.wessendorf.websocket.WebSocketHandlerAdapter;
 import java.net.URISyntaxException;
 import java.util.logging.Logger;
 
-public class SimpleClient {
+public class    SimpleClient {
 
     private static final Logger logger = Logger.getLogger(SimpleClient.class.getName());
 

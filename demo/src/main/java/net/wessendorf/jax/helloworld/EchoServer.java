@@ -20,6 +20,7 @@ import io.undertow.websockets.WebSocketConnectionCallback;
 import io.undertow.websockets.core.AbstractReceiveListener;
 import io.undertow.websockets.core.BufferedBinaryMessage;
 import io.undertow.websockets.core.BufferedTextMessage;
+import io.undertow.websockets.core.CloseMessage;
 import io.undertow.websockets.core.WebSocketChannel;
 import io.undertow.websockets.core.WebSockets;
 import io.undertow.websockets.spi.WebSocketHttpExchange;
@@ -38,12 +39,14 @@ public class EchoServer {
     public static void main(String... args) {
 
         Undertow server = Undertow.builder()
-                .addHttpListener(8080, "localhost")
+                .addHttpListener(8080, "0.0.0.0")
                 .setHandler(path()
                         .addPrefixPath("/echo", websocket(new WebSocketConnectionCallback() {
 
                             @Override
                             public void onConnect(WebSocketHttpExchange exchange, WebSocketChannel channel) {
+
+                                logger.info(String.format("Connection established from '%s'", channel.getPeerAddress()));
 
                                 channel.getReceiveSetter().set(new AbstractReceiveListener() {
 
@@ -61,8 +64,15 @@ public class EchoServer {
                                         logger.info(String.format("Got binary from '%s'", channel.getPeerAddress()));
                                         WebSockets.sendBinary(message.getData().getResource(), channel, null);
                                     }
+
+                                    @Override
+                                    protected void  onCloseMessage(CloseMessage cm, WebSocketChannel channel) {
+                                        logger.info(String.format("Close request from '%s'", channel.getPeerAddress()));
+                                    }
+
                                 });
                                 channel.resumeReceives();
+
                             }
                         }))).build();
 

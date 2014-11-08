@@ -15,6 +15,7 @@
  */
 package net.wessendorf.jax.jsr356.server;
 
+import javax.websocket.OnClose;
 import javax.websocket.OnError;
 import javax.websocket.OnMessage;
 import javax.websocket.OnOpen;
@@ -30,7 +31,7 @@ public class AnnotatedEchoServer {
 
     @OnOpen
     public void connect(Session session) {
-        logger.info("Da...");
+        logger.info("Connection established from" + session.getRequestParameterMap());
     }
 
     @OnMessage
@@ -46,6 +47,11 @@ public class AnnotatedEchoServer {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    @OnClose
+    public void close(Session session) {
+        logger.info("Connection closed from" + session.getRequestURI());
     }
 
     @OnError
