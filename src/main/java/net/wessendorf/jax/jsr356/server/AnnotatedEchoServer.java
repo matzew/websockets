@@ -31,7 +31,7 @@ public class AnnotatedEchoServer {
 
     @OnOpen
     public void connect(Session session) {
-        logger.info("Connection established from" + session.getRequestParameterMap());
+        logger.info("Connection established!");
     }
 
     @OnMessage

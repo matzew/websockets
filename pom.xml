@@ -70,6 +70,34 @@
   </dependencies>
   <build>
     <plugins>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-shade-plugin</artifactId>
+            <executions>
+                <execution>
+                    <phase>package</phase>
+                    <goals>
+                        <goal>shade</goal>
+                    </goals>
+                    <configuration>
+                        <transformers>
+                            <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                                <mainClass>net.wessendorf.jax.jsr356.server.UndertowRunner</mainClass>
+                            </transformer>
+                        </transformers>
+                        <filters>
+                            <filter>
+                                <artifact>*:*</artifact>
+                                <excludes>
+                                    <exclude>META-INF/LICENSE.txt</exclude>
+                                    <exclude>META-INF/NOTICE.txt</exclude>
+                                </excludes>
+                            </filter>
+                        </filters>
+                    </configuration>
+                </execution>
+            </executions>
+        </plugin>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
         <version>3.0</version>
@@ -83,7 +111,7 @@
 
   <properties>
       <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-      <undertow.version>1.2.0.Beta3</undertow.version>
+      <undertow.version>1.2.0.Beta8</undertow.version>
   </properties>
 
   <repositories>
