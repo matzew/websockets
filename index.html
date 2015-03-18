@@ -237,13 +237,13 @@
 				<h3>JavaScript API</h3>
 				```
 				function sendTextMessage() {
-				    if (mySocket.readyState != WebSocket.OPEN) return;
+				    if (mySocket.readyState !== WebSocket.OPEN) return;
 
 				    mySocket.send("Hello there...!");
 				 }
 
 				 function sendBinaryMessage() {
-				    if (mySocket.readyState != WebSocket.OPEN) return;
+				    if (mySocket.readyState !== WebSocket.OPEN) return;
 
 				    mySocket.send(canvasElementRef.toBlob()); // blob: default...
 				 }
