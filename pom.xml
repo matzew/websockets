@@ -111,7 +111,7 @@
 
   <properties>
       <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-      <undertow.version>1.2.0.Beta8</undertow.version>
+      <undertow.version>1.4.2.Final</undertow.version>
   </properties>
 
   <repositories>
