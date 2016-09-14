@@ -14,6 +14,9 @@ target/
 *.releaseBackup
 release.properties
 
+#Maven Shade
+dependency-reduced-pom.xml
+
 .idea/
 *.class
 *.iml
